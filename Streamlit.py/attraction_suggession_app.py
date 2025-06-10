@@ -116,11 +116,11 @@ with tab1:
 
 # -----------------------CONTENT BASED FILTERING---------------------#
 # Load saved models
-tfidf = joblib.load('C:/Users/dhars/Downloads/Dhass/codeing/GUVI/2. MainBoot/4.Project_Code/Project4/Project4_Code/Tourism_Experince_Analytics/models/Recommendation_Task_Model/tfidf_vectorizer.joblib')
-knn = joblib.load('C:/Users/dhars/Downloads/Dhass/codeing/GUVI/2. MainBoot/4.Project_Code/Project4/Project4_Code/Tourism_Experince_Analytics/models/Recommendation_Task_Model/knn_model.joblib')
+tfidf = joblib.load('models/Recommendation_Task_Model/tfidf_vectorizer.joblib')
+knn = joblib.load('models/Recommendation_Task_Model/knn_model.joblib')
 
 # Load lookup table (deduplicated attractions)
-df_lookup = pd.read_csv('C:/Users/dhars/Downloads/Dhass/codeing/GUVI/2. MainBoot/4.Project_Code/Project4/Project4_Code/Tourism_Experince_Analytics/DataSets/Recommendation_Task_DataSet/attraction_lookup.csv')
+df_lookup = pd.read_csv('DataSets/Recommendation_Task_DataSet/attraction_lookup.csv')
 
 # Build combined_features for df_lookup (must match model training!)
 df_lookup['combined_features'] = (
