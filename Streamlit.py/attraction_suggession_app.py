@@ -18,7 +18,7 @@ tab1,tab2 = st.tabs(['Recommend attractions Based on User','Recommend attraction
 
 # -----------------------COLLABORATIVE FILTERING---------------------#
 # Load data
-user_attraction_matrix = pd.read_csv('C:/Users/dhars/Downloads/Dhass/codeing/GUVI/2. MainBoot/4.Project_Code/Project4/Project4_Code/Tourism_Experince_Analytics/DataSets/Recommendation_Task_DataSet/user_attraction_matrix.csv')
+user_attraction_matrix = pd.read_csv('DataSets/Recommendation_Task_DataSet/user_attraction_matrix.csv')
 
 attraction_similarity = pd.read_csv('C:/Users/dhars/Downloads/Dhass/codeing/GUVI/2. MainBoot/4.Project_Code/Project4/Project4_Code/Tourism_Experince_Analytics/DataSets/Recommendation_Task_DataSet/attraction_similarity.csv', index_col=0)
 
