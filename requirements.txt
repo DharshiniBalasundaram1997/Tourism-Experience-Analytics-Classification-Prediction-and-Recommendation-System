@@ -1,0 +1,13 @@
+psycopg2-binary
+streamlit
+pandas
+matplotlib
+plotly
+seaborn
+numpy
+scikit-learn
+joblib
+xgboost
+lightgbm
+ipykernel
+scikit-surprise
