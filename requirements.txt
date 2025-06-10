@@ -10,4 +10,3 @@ joblib
 xgboost
 lightgbm
 ipykernel
-scikit-surprise
