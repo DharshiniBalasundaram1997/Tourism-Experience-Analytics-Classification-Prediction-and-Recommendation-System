@@ -51,17 +51,17 @@
 # Step3: EDA:
 - Importing necessary Libraries
 - Load preprocessed dataset
-○	Visualize user distribution across continents, countries, and regions
+- ○	Visualize user distribution across continents, countries, and regions
      - Count of users by continent
      - Count of users by region
      - Count of users by Country
      - Count of users by City
-○	Explore attraction types and their popularity based on user ratings.
+- ○	Explore attraction types and their popularity based on user ratings.
      - Popularity of Attraction Types by Visits
      - Average ratings of Attraction Type
-○	Investigate correlation between VisitMode and user demographics to identify patterns.
+- ○	Investigate correlation between VisitMode and user demographics to identify patterns.
      - Number of Users by Visit Mode Across Continents
-○	Analyze distribution of ratings across different attractions and regions.
+- ○	Analyze distribution of ratings across different attractions and regions.
      - Distribution of Top 100 Ratings Across Attractions and Regions
 
 # Step4: Model Training and Evaluation:
