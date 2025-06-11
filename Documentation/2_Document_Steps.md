@@ -1,9 +1,70 @@
-# Step1: Data Cleaning
-# Step2: Data PreProcessing
-# Step3: EDA
+# Step1: Data Cleaning:
+- Importing Uncleaned Dataset.
+- Fetching csv files information.
+- Data Cleaning:
+    - 1. Normalize Formatting:
+         - Stripping the white spaces.
+    - 2. Verifying How many null values are present in each columns.
+    - 3. Handling Missing data/values: City and User csv file has null values on the columns of CityName and CityId:
+         - 1. Replacing the nan values in CityName column of City csv file:
+         - 2. Replacing the nan values in CityId column of User csv file:
+         - 3. Mapping the values for AttractionTypeId in Item csv:
+    - 4. Validating Data Relationships Between Tables - Data Model:
+         - ER Model
+         - Validate all Relationships
+    - 5. Standardize date and time format.
+    - 6. Handle outliers:
+         - To Handle Outlier, either use Domain-based rules (e.g., Rating should be between 1 and 5) or use Statistical rules(e.g., IQR)
+            - Domain-based rules (e.g., Rating should be between 1 and 5)
+    - 7. Handle any incorrect entries other columns
+- Saving the cleaned DataSet
 
-# Step4: Model Training and Evaluation
+# Step2: Data PreProcessing:
+- importing libraries
+- Load cleaned datasets
+> *Feature Engineering*
+  - Encode categorical variables such as VisitMode, Continent, Country, and AttractionTypeId
+      - 1. Performing a Label Encoder for necessary columns.
+  - Aggregate user-level features to represent each user's profile (e.g., average ratings per visit mode).
+      - 1. Finding Average rating per user
+      - 2. Finding Count of visits per VisitMode per user
+      - 3. Finding Average rating per attraction
+      - 4. Finding Total visits per user
+      - 5. Merge the above findings in  Transaction table
+      - 6. Merging the Trasction Table and Model Table as Merged_data1
+      - 7. Merging Item and Type Table as Merged_data2
+      - 8. Merging Merged_data1 & Merged_data2 as Merged_data3
+  - Join with User (UserId) ──┬─→ City (CityId) ──→ Country (CountryId) ──→ Region (RegionId) ──→ Continent (ContinentId)
+      - 1. Merging City and Country as geographical_features
+      - 2. Merging geographical_features and Region
+      - 3. Merging geographical_features and Continent
+      - 4. Dropping null values in geographical_features. If there is 1 nan value, then the whole row will be dropped
+      - 5. Merging Merged_data3 and User as Merged_data
+      - 6. Finaly Merging Merged_data & geographical_features as Final_Merged_data
+      - 7. Fetching only necessary columns
+> *Normalization:*
+  - Scale numerical features such as Rating for better model convergence
+      - 1. Select numerical columns to normalize.
+      - 2. Using MinMaxScaler
+- Saving the pre-processed DataSet
 
+# Step3: EDA:
+- Importing necessary Libraries
+- Load preprocessed dataset
+○	Visualize user distribution across continents, countries, and regions
+     - Count of users by continent
+     - Count of users by region
+     - Count of users by Country
+     - Count of users by City
+○	Explore attraction types and their popularity based on user ratings.
+     - Popularity of Attraction Types by Visits
+     - Average ratings of Attraction Type
+○	Investigate correlation between VisitMode and user demographics to identify patterns.
+     - Number of Users by Visit Mode Across Continents
+○	Analyze distribution of ratings across different attractions and regions.
+     - Distribution of Top 100 Ratings Across Attractions and Regions
+
+# Step4: Model Training and Evaluation:
 ## 1. Regression:
 ### 🎯 **Use Case: Predicting Attraction Ratings**
 > *📌 Objective*
@@ -32,6 +93,7 @@
 - Advanced: 
     - Random Forest Regressor
     - XGBoost , GradientBoostingRegressor, lightgbm
+    - Hyper Paramter Tuning: RandomizedSearchCV
 
 
 ## 2. Classification:
@@ -57,12 +119,11 @@
 - Visit Mode (categorical): Business, Family, Couples, Friends, Solo, Other
 
 > *🤖 Model Options:*
-- Baseline:
-    - Logistic Regression (Multinomial)
 - Advanced:
     - Random Forest Classifier
     - XGBoost Classifier
     - LightGBM Classifier
+    - Hyper Paramter Tuning: RandomizedSearchCV
 
 
 ## 3. Recommendation:
@@ -88,4 +149,8 @@
 > *🎯 Output*
 - Ranked list of recommended attractions personalized for the user.
 
-# Step5: Deployment - Streamlit
+# Step5: Deployment - Streamlit:
+- Deploying below 3 files in Streamlit:
+    - Streamlit.py\attraction_ratings_app.py
+    - Streamlit.py\user_visit_mode_app.py
+    - Streamlit.py\attraction_suggession_app.py
