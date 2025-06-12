@@ -16,8 +16,7 @@ The solution integrates **Machine Learning** models with a **Streamlit-based web
 - 📊 Data Cleaning and Preprocessing  
 - 🔍 Exploratory Data Analysis (EDA)  
 - 📈 Data Visualization  
-- 🧠 Machine Learning (Regression, Classification, Recommendation)  
-- 💻 SQL (Data Integration & Joins)  
+- 🧠 Machine Learning (Regression, Classification, Recommendation)
 - 🌐 Streamlit Web App Deployment  
 
 ---
